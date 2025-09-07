@@ -1,0 +1,72 @@
+﻿@page "/posts/edit/{id?}"
+@model PostEditModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<form method="post">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="form-group pb-3">
+                <label>Title</label>
+                <input asp-for="Post.Title" required class="form-control" placeholder="short problem title, similar to how you would google it">
+            </div>
+            <div class="form-group pb-3">
+                <label>Problem</label>
+                <textarea id="problemMarkdown" asp-for="Post.ProblemMarkdown" rows="8" class="form-control"></textarea>
+                <div class="preview-title">
+                    preview
+                </div>
+                <div id="problemPreview" class="preview">
+                </div>
+            </div>
+            <div class="form-group pb-3">
+                <label>Solution</label>
+                <textarea id="solutionMarkdown" asp-for="Post.SolutionMarkdown" rows="12" class="form-control"></textarea>
+                <div class="preview-title">
+                    preview
+                </div>
+                <div id="solutionPreview" class="preview">
+                </div>
+            </div>
+            <div class="form-group pb-3">
+                <label>Tags</label>
+                <input asp-for="Post.Tags" required class="form-control" placeholder="1 to 3 tags, comma separated, for example: Angular,CSS">
+            </div>
+            @if (Model.Id == 0)
+            {
+                <div class="form-group pb-3">
+                    <label>Your Website</label>
+                    <input asp-for="Website" class="form-control" placeholder="optional, gets displayed under your post and it's do-followed">
+                </div>
+            }
+        </div>
+        <div class="col-lg-4 d-none d-lg-block post-edit-tips">
+            <h4>Formatting Tips</h4>
+
+            <p>This editor uses <a href="https://commonmark.org/help/" target="_blank">Markdown</a> to easily add code in your posts.</p>
+
+            <p>Triple backticks for full line(s) of code</p>
+<pre><code>```
+let foo = 'bar';
+```
+</code></pre>
+
+            <p>(alternatively, you can let 4 spaces in front of each line of code)</p>
+
+            <p>Bacticks for `<code>inline code</code>`</p>
+
+            <p>[link text](http://a.com)</p>
+
+            <p>*<em>italic</em>* **<strong>bold</strong>**</p>
+
+            <p>![image alt text](http://url/a.png)</p>
+
+            <a href="https://commonmark.org/help/" target="_blank">More Tips</a>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts {
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="~/js/postEdit.js" asp-append-version="true"></script>
+}

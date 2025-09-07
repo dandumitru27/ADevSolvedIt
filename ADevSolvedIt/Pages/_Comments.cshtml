@@ -1,0 +1,30 @@
+﻿@using ADevSolvedIt.Data.Entities
+@using ADevSolvedIt.Services
+
+@model List<Comment>
+
+@if (Model.Any())
+{
+    <div class="comments" id="comments">
+        <h2>@(Model.Count == 1 ? "1 Comment" : Model.Count + " Comments")</h2>
+        <hr />
+        @foreach (var comment in Model)
+        {
+            <div class="comment">
+                @Html.Raw(comment.TextHtml)
+                <div class="d-flex flex-row-reverse">
+                    <img src="https://www.gravatar.com/avatar/@comment.EmailHash?default=identicon&size=50" class="ps-2" alt="Gravatar" />
+                    <div>
+                        <div class="comment-name">
+                            @comment.Name
+                        </div>
+                        <div class="comment-created-on" title="@DateTimeService.ToZuluTime(comment.CreatedOn)">
+                            @DateTimeService.GetReadableRelativeTime(comment.CreatedOn)
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        }
+    </div>
+}

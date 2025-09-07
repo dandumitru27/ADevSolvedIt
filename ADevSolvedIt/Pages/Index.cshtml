@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "A Dev Solved It - And Generously Shared It";
+}
+
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <div class="mb-4 px-3 py-3" style="font-size: 1.2em; border-radius: 10px; border: 1px solid lightgray;">
+            Welcome! I'm building here a library of useful solutions to software development problems. Have a look around and, if you like the project, join in and write a post yourself when you run into something useful... <a asp-page="/about" style="text-decoration: underline">>> read more</a>
+        </div>
+        @foreach (var post in Model.Posts)
+        {
+            <div class="post">
+                <h3>
+                    <a href="/@post.Id/@post.Slug" class="post-link">@post.Title</a>
+                </h3>
+                <div class="mb-2" style="font-size: 1.1em; float: left;">
+                    @post.LastEditDate.ToString("MMM d, yyyy")
+
+                    <img src="@("https://www.gravatar.com/avatar/" + @post.UserEmailHash + "?default=identicon&size=20")" class="ms-2 me-2" style="border-radius: 4px" alt="Gravatar" title="@post.UserName" />
+
+                    @if (post.Views >= 500)
+                    {
+                        <span style="color: #A00000">@post.Views.ToString("n0") views</span>
+                    }
+                    else
+                    {
+                        <span>@post.Views @(post.Views == 1 ? "view" : "views")</span>
+                    }
+
+                    <span class="ms-1 me-1">@(post.ThanksCount > 0 || post.CommentCount > 0 ? " • " : "")</span>
+
+                    @if (post.CommentCount > 0)
+                    {
+                        <span>
+                            @post.CommentCount @(post.CommentCount == 1 ? "comment" : "comments")
+                        </span>
+                    }
+                    else if (post.ThanksCount > 0)
+                    {
+                        <span>@post.ThanksCount thanks</span>
+                    }
+                </div>
+                <div style="float: right">
+                    @foreach (var tag in post.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        <span class="tag ms-1">@tag</span>
+                    }
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        }
+        <div class="mb-4" style="font-size: 1.3em">
+            1 - @Model.Posts.Count out of @Model.Posts.Count posts
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <h4 class="mt-2" style="margin-bottom: 14px;">Tags</h4>
+        @foreach (var tag in Model.Tags)
+        {
+            <div class="tag-stat">
+                <span class="tag">@tag.Name</span>&nbsp; x @tag.UsageCount
+            </div>
+        }
+    </div>
+</div>

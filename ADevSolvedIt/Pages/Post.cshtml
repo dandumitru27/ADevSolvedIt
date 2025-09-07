@@ -1,0 +1,141 @@
+﻿@page "/{id:int}/{slug}"
+
+@using ADevSolvedIt.Services
+
+@model ADevSolvedIt.Pages.PostModel
+@{
+    ViewData["Title"] = Model.Post.Title + " - Solved";
+
+    var scheme = HttpContext.Request.Scheme;
+    var host = HttpContext.Request.Host.Value;
+
+    var canonicalUrl = $"{scheme}://{host}/{Model.Post.Id}/{Model.Post.Slug}";
+}
+
+@section Head {
+    <link rel="canonical" href="@canonicalUrl" />
+}
+
+<h1 class="post-title">@Model.Post.Title</h1>
+
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <div class="section">
+            <span class="section-title">problem</span>
+            <div class="section-content">@Html.Raw(Model.Post.ProblemHtml)</div>
+        </div>
+
+        <div class="section">
+            <span class="section-title">solution</span>
+            <div class="section-content">@Html.Raw(Model.Post.SolutionHtml)</div>
+
+            @if (Model.ShowEditButton)
+            {
+                <a href="/posts/edit/@Model.Id" class="btn btn-success btn-action">Edit Post</a>
+            }
+        </div>
+
+        <div class="container ps-0 pe-0 mb-4">
+            <div class="row me-0">
+                <div style="width: 120px">
+                    <img src="@("https://www.gravatar.com/avatar/" + Model.Post.User.EmailHash + "?default=identicon&size=120")" alt="Gravatar" />
+                </div>
+                <div class="col ms-3 pe-0">
+                    <div class="row ms-0 me-0">
+                        <div class="col-12 col-md-6 ps-0 pe-0" style="font-size: 1.2em">
+                            <div class="pt-2 mb-2"><span class="text-black-50">Author:</span> @Model.Post.User.Name</div>
+                            <div class="mb-2">
+                                <span class="text-black-50">Last Edit:</span>
+                                <span title="@DateTimeService.ToZuluTime(Model.Post.LastEditDate)">@Model.Post.LastEditDate.ToString("MMMM d, yyyy")</span>
+                            </div>
+                            @if (!string.IsNullOrWhiteSpace(Model.Post.User.Website))
+                            {
+                                <div class="mb-2">
+                                    <span class="text-black-50">Website:</span>
+                                    <a href="@Model.Post.User.Website">@Model.Post.User.Website.Replace("https://", "").Replace("http://", "")</a>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-12 col-md-6 pe-0 pt-2 text-end">
+                            <button id="btnThanks" type="button" class="btn btn-success" style="font-size: 1.4em" disabled="@Model.HasUserClickedThanks"
+                            title="@(!Model.HasUserClickedThanks ? "Click this if you want to let the author know the post helped" : "")">
+                                @(Model.HasUserClickedThanks ? "Thanked" : "Thank you!")
+                            </button>
+                            <div id="divThanksCount" class="text-end mt-2 text-secondary" style="@(Model.Post.ThanksCount > 0 ? "display:block" : "display:none")">
+                                @Model.Post.ThanksCount Thanks received
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4 px-3 py-3" style="font-size: 1.2em; border-radius: 10px; border: 1px solid lightgray;">
+            <b>Join in!</b> I'm building here a library of useful solutions to software development problems. If you like this project, <a asp-page="/account/register" asp-area="identity" style="text-decoration: underline">create an account</a> or add a bookmark, then come back here to write a post yourself when you run into something that might be useful to others... <a asp-page="/about" style="text-decoration: underline">>> read more</a>
+        </div>
+
+        <partial name="_Comments" model="Model.Comments" />
+    </div>
+    <div class="col-lg-4 d-none d-lg-block">
+        <table class="post-details">
+            @if (Model.Post.LastEditDate.Date != Model.Post.CreationDate.Date)
+            {
+                <tr>
+                    <td class="label">
+                        Last Edit
+                    </td>
+                    <td class="value" title="@DateTimeService.ToZuluTime(Model.Post.LastEditDate)">
+                        @Model.Post.LastEditDate.ToString("MMMM d, yyyy")
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td class="label">
+                    Created
+                </td>
+                <td class="value" title="@DateTimeService.ToZuluTime(Model.Post.CreationDate)">
+                    @Model.Post.CreationDate.ToString("MMMM d, yyyy")
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    Views
+                </td>
+                <td class="value">
+                    @Model.Post.Views.ToString("n0")
+                </td>
+            </tr>
+            <tr>
+                <td class="label tags">
+                    Tags
+                </td>
+                <td>
+                    @foreach (var tag in Model.Post.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        <div class="tag-div">
+                            <span class="tag">
+                                @tag
+                            </span>
+                        </div>
+                    }
+                </td>
+            </tr>
+        </table>
+        <div class="recent-posts">
+            <h4 class="mb-3">@(Model.MostSignificantTag != null ? $"Other {Model.MostSignificantTag} Posts" : "Recent Posts")</h4>
+            @foreach (var recentPost in Model.RelatedPosts)
+            {
+                <div class="recent-post">
+                    <a href="/@recentPost.Id/@recentPost.Slug">@recentPost.Title</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<partial name="_AddComment" model="Model.NewComment" />
+
+@section Scripts {
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="~/js/post.js" asp-append-version="true"></script>
+}

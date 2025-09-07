@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADevSolvedIt", "ADevSolvedIt\ADevSolvedIt.csproj", "{6350164B-2159-45DF-B426-94D5082F1ED2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exporter", "Exporter\Exporter.csproj", "{4B04B261-187B-4D05-A525-8CD3960E001C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "export", "export", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		export\README.md = export\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "posts", "posts", "{DB998905-B128-4D0D-ACD2-6FF757F6BCB6}"
+	ProjectSection(SolutionItems) = preProject
+		export\posts\angular-2-rewrite-old-angularjs-links-fragment-problems.md = export\posts\angular-2-rewrite-old-angularjs-links-fragment-problems.md
+		export\posts\angular-2-routing---parameter-inside-url-segment.md = export\posts\angular-2-routing---parameter-inside-url-segment.md
+		export\posts\aspnet-load-user-secretsjson-when-environment-is-not-development.md = export\posts\aspnet-load-user-secretsjson-when-environment-is-not-development.md
+		export\posts\c-sharp-console-format-number-as-you-type.md = export\posts\c-sharp-console-format-number-as-you-type.md
+		export\posts\c-sharp-write-property-as-cdata-when-serializing-to-xml.md = export\posts\c-sharp-write-property-as-cdata-when-serializing-to-xml.md
+		export\posts\get-variable-group-id-for-azure-pipeline-library.md = export\posts\get-variable-group-id-for-azure-pipeline-library.md
+		export\posts\group-by-hour-in-oracle.md = export\posts\group-by-hour-in-oracle.md
+		export\posts\highlightjs-in-angular-2-on-dynamic-content.md = export\posts\highlightjs-in-angular-2-on-dynamic-content.md
+		export\posts\javascript-number-to-short-format-like-youtube-view-counts-with-magnitude-suffix.md = export\posts\javascript-number-to-short-format-like-youtube-view-counts-with-magnitude-suffix.md
+		export\posts\kubernetes-secrets-in-net-configuration-from-azure-key-vault.md = export\posts\kubernetes-secrets-in-net-configuration-from-azure-key-vault.md
+		export\posts\mark-net-web-api-endpoint-as-obsolete-deprecated.md = export\posts\mark-net-web-api-endpoint-as-obsolete-deprecated.md
+		export\posts\mongodb---csfle---unrecognized-pipeline-stage-name-search.md = export\posts\mongodb---csfle---unrecognized-pipeline-stage-name-search.md
+		export\posts\mongodb-c-sharp-create-index-case-insensitive.md = export\posts\mongodb-c-sharp-create-index-case-insensitive.md
+		export\posts\moto-s3-using-awsendpointurl-from-env.md = export\posts\moto-s3-using-awsendpointurl-from-env.md
+		export\posts\net-application-doesnt-run-after-injecting-a-scoped-service-into-a-singleton.md = export\posts\net-application-doesnt-run-after-injecting-a-scoped-service-into-a-singleton.md
+		export\posts\python-vcrpy-replace-access-token-from-response-in-cassette.md = export\posts\python-vcrpy-replace-access-token-from-response-in-cassette.md
+		export\posts\python-virtual-environment-with-specific-version-on-windows.md = export\posts\python-virtual-environment-with-specific-version-on-windows.md
+		export\posts\razor-pages---generate-link-rel-canonical.md = export\posts\razor-pages---generate-link-rel-canonical.md
+		export\posts\razor-pages---multiple-routes-for-same-page.md = export\posts\razor-pages---multiple-routes-for-same-page.md
+		export\posts\razor-pages-fetch-with-post-from-javascript-no-page-reload.md = export\posts\razor-pages-fetch-with-post-from-javascript-no-page-reload.md
+		export\posts\react-app-not-visible-on-local-wireless-network.md = export\posts\react-app-not-visible-on-local-wireless-network.md
+		export\posts\react-i18next-get-language-in-utility-function.md = export\posts\react-i18next-get-language-in-utility-function.md
+		export\posts\react-oryx-build-fail-with-ts2307-cannot-find-module.md = export\posts\react-oryx-build-fail-with-ts2307-cannot-find-module.md
+		export\posts\scaffold-identity-api-endpoints-in-net-8.md = export\posts\scaffold-identity-api-endpoints-in-net-8.md
+		export\posts\tailwind-css---arbitrary-color-not-applied-all-the-time-on-heroicon.md = export\posts\tailwind-css---arbitrary-color-not-applied-all-the-time-on-heroicon.md
+		export\posts\use-commonmark-markdown-in-angular-2.md = export\posts\use-commonmark-markdown-in-angular-2.md
+		export\posts\visual-studio-2022-2019-add-web-reference-missing.md = export\posts\visual-studio-2022-2019-add-web-reference-missing.md
+		export\posts\visual-studio-test-explorer-not-running-tests.md = export\posts\visual-studio-test-explorer-not-running-tests.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6350164B-2159-45DF-B426-94D5082F1ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6350164B-2159-45DF-B426-94D5082F1ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6350164B-2159-45DF-B426-94D5082F1ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6350164B-2159-45DF-B426-94D5082F1ED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B04B261-187B-4D05-A525-8CD3960E001C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B04B261-187B-4D05-A525-8CD3960E001C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B04B261-187B-4D05-A525-8CD3960E001C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B04B261-187B-4D05-A525-8CD3960E001C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+		{DB998905-B128-4D0D-ACD2-6FF757F6BCB6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {718925C1-81AA-4F76-8578-8FDF4DF8713A}
+	EndGlobalSection
+EndGlobal

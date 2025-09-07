@@ -1,0 +1,59 @@
+﻿@using ADevSolvedIt.Data.Entities;
+@using AspNetCore.ReCaptcha;
+@using Microsoft.AspNetCore.Http;
+
+@model Comment
+
+<h2>Your Comment</h2>
+
+<div class="mb-2">
+    Feel free to post additional info or improvement suggestions.
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <form method="post">
+            <div class="mb-3">
+                <textarea id="commentTextMarkdown" asp-for="TextMarkdown" required rows="6" class="form-control"></textarea>
+                <div class="preview-title">
+                    preview
+                </div>
+                <div id="commentTextPreview" class="preview">
+                </div>
+            </div>
+            <div class="mb-3">
+                <input asp-for="Name" required class="form-control form-input-250" placeholder="Name">
+            </div>
+            <div class="mb-3">
+                <input asp-for="Email" class="form-control form-input-250" placeholder="Email" aria-describedby="emailInfo">
+                <div id="emailInfo" class="form-text">Optional, never shown, displays gravatar.</div>
+            </div>
+
+            <recaptcha />
+
+            @if (TempData["CaptchaErrorMessage"] != null)
+            {
+                <div id="captchaErrorMessage" class="text-danger mb-3">@TempData["CaptchaErrorMessage"]</div>
+            }
+
+            <button type="submit" class="btn btn-success">Post Comment</button>
+        </form>
+    </div>
+    <div class="col-lg-4 d-none d-lg-block">
+        <h4>Formatting Tips</h4>
+
+        <p>This editor uses <a href="https://commonmark.org/help/" target="_blank">Markdown</a> to easily add code in your posts.</p>
+
+        <p>Triple backticks for full line(s) of code (or indent 4 spaces)</p>
+<pre><code>```
+let foo = 'bar';
+```
+</code></pre>
+
+        <p>[link text](http://a.com)</p>
+
+        <p>*<em>italic</em>* **<strong>bold</strong>**</p>
+
+        <a href="https://commonmark.org/help/" target="_blank">More Tips</a>
+    </div>
+</div>

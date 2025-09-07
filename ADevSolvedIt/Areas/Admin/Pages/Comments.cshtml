@@ -1,0 +1,28 @@
+﻿@page
+@model ADevSolvedIt.Areas.Admin.Pages.CommentsModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Text Markdown</th>
+            <th>Post Title</th>
+            <th>Author</th>
+            <th>Created On</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model.Comments)
+        {
+            <tr>
+                <td>@comment.TextMarkdown[..Math.Min(comment.TextMarkdown.Length, 60)]</td>
+                <td>@comment.Post.Title[..Math.Min(comment.Post.Title.Length, 40)]</td>
+                <td>@comment.Name</td>
+                <td>@comment.CreatedOn.ToString("MMM d, yyyy HH:mm")</td>
+                <td><a href="/admin/comment-edit/@comment.Id">Edit</a></td>
+                <td><a href="/admin/comment-delete/@comment.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

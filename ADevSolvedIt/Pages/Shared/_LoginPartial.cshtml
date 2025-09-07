@@ -1,0 +1,30 @@
+﻿@using ADevSolvedIt.Data.Entities
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="d-flex align-items-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var applicationUser = await UserManager.GetUserAsync(User);
+        var isAdmin = await UserManager.IsInRoleAsync(applicationUser, "Admin");
+
+        <div class="login-partial-name">
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@applicationUser.Name</a>
+            @if (isAdmin)
+            {
+                <a asp-area="Admin" asp-page="Index"><i class="bi bi-house-lock"></i></a>
+            }
+        </div>
+
+        <form class="logout-form" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+            <button type="submit" class="btn-link text-dark logout-button">Log out</button>
+        </form>
+    }
+    else
+    {
+        <a asp-area="Identity" asp-page="/Account/Login" class="me-4">Log in</a>
+        <a asp-area="Identity" asp-page="/Account/Register">Sign up</a>
+    }
+</div>

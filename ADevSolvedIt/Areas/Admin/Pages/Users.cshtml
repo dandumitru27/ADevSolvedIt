@@ -1,0 +1,28 @@
+﻿@page
+@model ADevSolvedIt.Areas.Admin.Pages.UsersModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Website</th>
+            <th>Created On</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    @user.Name
+                </td>
+                <td>
+                    @user.Website
+                </td>
+                <td>
+                    @user.CreatedOn.ToString("MMM d, yyyy HH:mm")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

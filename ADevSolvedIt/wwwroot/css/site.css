@@ -1,0 +1,320 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+textarea {
+    font-family: 'Lucida Console', Consolas, 'Courier New';
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 140px;
+    font-family: Piazzolla;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        margin-bottom: 200px;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 30px; /* Vertically center the text there */
+}
+
+/* Global
+-------------------------------------------------- */
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+a {
+    color: hsl(87, 50%, 36%);
+    text-decoration: none;
+}
+
+code {
+    color: #892f60;
+}
+
+h1 {
+    font-size: 1.9em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.7em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+.btn {
+    font-size: 1.1em;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: hsl(87, 50%, 36%);
+}
+
+.tag {
+    padding: 4px 8px 4px 8px;
+    color: gray;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    display: inline-block;
+}
+
+
+/* Header
+-------------------------------------------------- */
+
+.login-partial-name {
+    margin-right: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    .div-add-post {
+        text-align: right;
+    }
+
+    .login-partial-name {
+        margin-right: 8px;
+    }
+}
+
+.btn-action {
+    color: hsl(87, 50%, 36%);
+    background-color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* Login / Register
+-------------------------------------------------- */
+
+.btn.provider {
+    border-color: lightgray;
+    border-radius: 0.5em;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.btn.google-btn {
+    background-color: white;
+    color: black;
+}
+
+    .btn.google-btn:hover {
+        background-color: #F4F4F4;
+    }
+
+.bi-google {
+    color: #34a853;
+}
+
+.btn.github-btn {
+    background-color: #303030;
+}
+
+
+/* Index
+-------------------------------------------------- */
+
+.post {
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px lightgray dotted;
+}
+
+.post-link {
+    color: hsl(87, 50%, 25%);
+}
+
+.tag-stat {
+    margin-bottom: 10px;
+}
+
+.logout-form {
+    display: inline;
+}
+
+.logout-button {
+    padding: 0;
+    border: 0;
+    vertical-align: inherit;
+    background-color: white;
+    text-decoration: none;
+}
+
+/* Post
+-------------------------------------------------- */
+.post-title {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #E0E0E0;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+}
+
+.section {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    background-color: hsl(87, 50%, 25%);
+    color: white;
+    font-family: Consolas;
+    font-size: 1.4em;
+    padding: 4px 10px 4px 10px;
+}
+
+.section-content {
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+
+    .section-content a {
+        text-decoration: underline;
+    }
+
+.post-details {
+    margin-top: 15px;
+}
+
+    .post-details .label {
+        width: 80px;
+        color: gray;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-top: 4px;
+    }
+
+    .post-details .tags {
+        vertical-align: top;
+        padding-top: 13px;
+    }
+
+    .post-details .value {
+        padding-bottom: 10px;
+        font-size: 1.1em;
+    }
+
+    .post-details .tag-div {
+        margin-top: 5px;
+    }
+
+.recent-posts {
+    margin-top: 30px;
+}
+
+.recent-post {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+@media screen and (max-width: 600px) {
+    .recent-posts {
+        font-size: 1.2em;
+    }
+}
+
+/* Comments
+-------------------------------------------------- */
+.comments {
+    margin-bottom: 50px;
+}
+
+.comment {
+    font-size: 1.2em;
+}
+
+.comment-name {
+    text-align: right;
+}
+
+.comment-created-on {
+    font-size: 0.8em;
+    font-style: italic;
+    color: #AAAAAA;
+    text-align: right;
+}
+
+.form-input-250 {
+    max-width: 250px;
+}
+
+/* About
+-------------------------------------------------- */
+
+.about-side {
+    background-image: url(/images/math_notebook.png);
+    background-repeat: repeat;
+}
+
+
+/* Admin
+-------------------------------------------------- */
+.post-edit-tips {
+    padding-top: 100px;
+}
+
+.preview-title {
+    background-color: #e3e3e3;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.preview {
+    border: 5px solid #e3e3e3;
+    padding: 0px 6px 0px 6px;
+}
+
+.post-delete-details {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
